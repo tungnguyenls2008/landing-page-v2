@@ -21,8 +21,8 @@ Auth::routes([
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::group(['as' => 'admin.', 'middleware' => ['auth', 'verified']], function () {
-    Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('home');
-    Route::post('/', [App\Http\Controllers\Admin\HomeController::class, 'store'])->name('home.save');
+    Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('home');
+    Route::post('/admin', [App\Http\Controllers\Admin\HomeController::class, 'store'])->name('home.save');
 
     Route::group(['prefix' => 'layout', 'as' => 'layout.'], function () {
         //Home
