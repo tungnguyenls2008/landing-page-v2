@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="We are MrFocus. Bridging the gap between traditional advertising and the digital age. We help you to understand the best way to position yourself as a company, brand, person, event, or agency. We then take that knowledge to create amazing engaging, creative content that reaches your audience in extremely effective ways using the right channels.">
-    <meta name="author" content="Mrfocuskw">
+    <meta name="description" content="Welcome to my world">
+    <meta name="author" content="tungnd">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
