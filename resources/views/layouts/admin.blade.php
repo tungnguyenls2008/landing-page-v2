@@ -82,8 +82,8 @@
             <!--begin::Brand-->
             <div class="brand flex-column-auto" id="kt_brand">
                 <!--begin::Logo-->
-                <a href="{{ route('admin.home') }}" class="brand-logo">
-                    <img alt="Logo" src="{{ asset('_admin/media/logos/logo-1.png') }}" class="max-h-70px" />
+                <a href="{{ route('frontend') }}">
+                    <img alt="Logo" src="{{ asset('_admin/media/logos/logo-light.png') }}" />
                 </a>
                 <!--end::Logo-->
                 <!--begin::Toggle-->
