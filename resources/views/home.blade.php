@@ -18,6 +18,9 @@ $ar = $Utilities->processHighlightText($home->content_ar, $home->highlight_ar);
                                     <div class="col-md-8 col-lg-6">
                                         <p class="subtitle-top pre-line">{{ app()->getLocale() == 'en' ? $home->header : $home->header_ar }}</p>
                                         <h1 class="display-2 text-white pre-line">{{ app()->getLocale() == 'en' ? $en['first'] : $ar['first'] }}<span class="text-primary">{{ app()->getLocale() == 'en' ? $en['middle'] : $ar['middle'] }}</span>{{app()->getLocale() == 'en' ? $en['last'] : $ar['last']}}</h1>
+                                        <div>
+                                            <a class="btn btn-warning btn-xl rounded-pill mt-5" href="{{asset('docs/NGUYEN-DUC-TUNG.pdf')}}" target="_blank">@lang('Curriculum Vitae')</a>
+                                        </div>
                                         <div class="hr-bottom"></div>
                                     </div>
                                 </div>
