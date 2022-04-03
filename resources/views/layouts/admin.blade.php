@@ -3,7 +3,7 @@
 <!--begin::Head-->
 <head>
     <meta charset="utf-8" />
-    <title>MrFocuskw</title>
+    <title>TUNGND - BACKEND</title>
     <meta name="description" content="Mrfocuskw Admin Panel" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
@@ -44,7 +44,7 @@
 <!--begin::Header Mobile-->
 <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
     <!--begin::Logo-->
-    <a href="{{ route('admin.home') }}">
+    <a href="{{ route('frontend') }}">
         <img alt="Logo" src="{{ asset('_admin/media/logos/logo-light.png') }}" />
     </a>
     <!--end::Logo-->
