@@ -124,26 +124,26 @@
                                                 <div class="mb-2"></div>
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="txt_title_ar">Project (AR)<span class="text-danger">*</span></label>
+                                                <label for="txt_title_ar">Project (VI)<span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control"
-                                                       placeholder="{{ __('Project (ar)') }}"
+                                                       placeholder="{{ __('Project (VI)') }}"
                                                        name="project_name_ar" required id="txt_title_ar" />
                                                 <div class="mb-2"></div>
                                             </div>
 
                                             <div class="col-md-6">
-                                                <label for="txt_description">{{ __('Description') }}
+                                                <label for="txt_description">{{ __('Link') }}
                                                     <span class="text-danger">*</span></label>
                                                 <textarea class="form-control" id="txt_description" name="description"
-                                                          placeholder="{{ __('Description') }}"
+                                                          placeholder="{{ __('Link') }}"
                                                           rows="3"></textarea>
                                                 <div class="d-md-none mb-2"></div>
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="txt_description_ar">{{ __('Description(AR)') }}
+                                                <label for="txt_description_ar">{{ __('Link(VI)') }}
                                                     <span class="text-danger">*</span></label>
                                                 <textarea class="form-control" id="txt_description_ar" name="description_ar"
-                                                          placeholder="{{ __('Description(AR)') }}"
+                                                          placeholder="{{ __('Link(VI)') }}"
                                                           rows="3"></textarea>
                                             </div>
 
@@ -245,7 +245,7 @@
                             <div class="form-group">
                                 <label for="txt_title_ar">Title (AR)<span class="text-danger">*</span></label>
                                 <input type="text" class="form-control"
-                                       placeholder="{{ __('Name (ar)') }}"
+                                       placeholder="{{ __('Name (vi)') }}"
                                        name="project_name_ar" required id="txt_title_ar" />
                                 <div class="d-md-none mb-2"></div>
                             </div>
@@ -258,10 +258,10 @@
                                 <div class="d-md-none mb-2"></div>
                             </div>
                             <div class="form-group">
-                                <label for="txt_description_ar">{{ __('Description(AR)') }}
+                                <label for="txt_description_ar">{{ __('Description(VI)') }}
                                     <span class="text-danger">*</span></label>
                                 <textarea class="form-control" id="txt_description_ar" name="description_ar"
-                                          placeholder="{{ __('Description(AR)') }}"
+                                          placeholder="{{ __('Description(VI)') }}"
                                           rows="3"></textarea>
                             </div>
                             <div class="form-group">
