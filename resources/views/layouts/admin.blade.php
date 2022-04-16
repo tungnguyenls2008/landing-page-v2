@@ -3,7 +3,7 @@
 <!--begin::Head-->
 <head>
     <meta charset="utf-8" />
-    <title>MrFocuskw</title>
+    <title>TUNGND - BACKEND</title>
     <meta name="description" content="Mrfocuskw Admin Panel" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
@@ -44,8 +44,8 @@
 <!--begin::Header Mobile-->
 <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
     <!--begin::Logo-->
-    <a href="{{ route('admin.home') }}">
-        <img alt="Logo" src="{{ asset('_admin/media/logos/logo-light.png') }}" />
+    <a href="{{ route('frontend') }}">
+        <img alt="Logo" src="{{ asset('_admin/media/logos/logo-light.png') }}" style="width: 107px;"/>
     </a>
     <!--end::Logo-->
     <!--begin::Toolbar-->
@@ -82,8 +82,8 @@
             <!--begin::Brand-->
             <div class="brand flex-column-auto" id="kt_brand">
                 <!--begin::Logo-->
-                <a href="{{ route('admin.home') }}" class="brand-logo">
-                    <img alt="Logo" src="{{ asset('_admin/media/logos/logo-1.png') }}" class="max-h-70px" />
+                <a href="{{ route('frontend') }}">
+                    <img alt="Logo" src="{{ asset('_admin/media/logos/logo-light.png') }}" style="width: 107px;"/>
                 </a>
                 <!--end::Logo-->
                 <!--begin::Toggle-->

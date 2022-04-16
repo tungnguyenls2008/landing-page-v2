@@ -22,7 +22,10 @@ class LayoutContactsController extends Controller
     {
         $request=$request->all();
         unset($request['_token']);
-        Contact::update($request);
+        $contact= Contact::first();
+        if ($contact!=null){
+            $contact->update($request);
+        }
 
         return redirect()->route('admin.layout.contact')
             ->with('success','Saved successfully');
