@@ -1,3 +1,9 @@
+<?php
+use Stevebauman\Location\Facades\Location;
+$visitor_ip=getIp();
+$visitor_location=Location::get($visitor_ip);
+\App\Models\Visitor::create(['ip_address'=>$visitor_ip,'location'=>$visitor_location]);
+?>
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
 <head>
