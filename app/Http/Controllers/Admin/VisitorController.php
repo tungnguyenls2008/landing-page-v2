@@ -13,7 +13,7 @@ class VisitorController extends Controller
 
     public function index()
     {
-        $data = Visitor::all();
+        $data = Visitor::orderBy('created_at','desc')->get();
         return view('admin.layout-visitors-list', [
             'data' => $data,
         ]);
