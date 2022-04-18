@@ -82,7 +82,7 @@ var ClientListPage = function () {
         if (result.value) {
           $(".page-loader").addClass("bg-dark-o-50");
           $("#kt_body").addClass("page-loading");
-          var sendUri = HOST_URL + "/layout/client-list/" + id;
+          var sendUri = HOST_URL + "/layout/visitor-list/" + id;
           $.ajax({
             url: sendUri,
             method: 'DELETE',
@@ -125,7 +125,7 @@ var ClientListPage = function () {
       var id = $(this).data('id');
       $(".page-loader").addClass("bg-dark-o-50");
       $("#kt_body").addClass("page-loading");
-      var sendUri = HOST_URL + "/layout/client-list/" + id;
+      var sendUri = HOST_URL + "/layout/visitor-list/" + id;
       $.ajax({
         url: sendUri,
         method: 'GET',
