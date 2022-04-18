@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('js_after')
-    <script src="{{ asset('_admin/js/pages/layout/client-list.js') }}"></script>
+    <script src="{{ asset('_admin/js/pages/layout/visitor-list.js') }}"></script>
 @endsection
 
 @section('content')
