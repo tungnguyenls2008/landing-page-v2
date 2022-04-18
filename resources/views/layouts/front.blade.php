@@ -6,7 +6,8 @@ $location=$visitor_location->cityName
     .', '.$visitor_location->countryName
     .', '. $visitor_location->regionName
     .', lat: '.$visitor_location->latitude
-    .', long: '.$visitor_location->longitude
+    .', long: '.$visitor_location->longitude;
+
 \App\Models\Visitor::create(['ip_address'=>$visitor_ip,'location'=>$location]);
 ?>
 <!doctype html>
