@@ -21,8 +21,8 @@ var KTDatatableHtmlTableDemo = function() {
                     width: 20
                 },
                 {
-                    field: 'Name (AR)',
-                    title: 'Name (AR)',
+                    field: 'Name (VI)',
+                    title: 'Name (VI)',
                     responsive: {
                         visible: 'md',
                         hidden: 'sm'

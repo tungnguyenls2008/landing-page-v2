@@ -118,10 +118,10 @@
                                             <div class="d-md-none mb-2"></div>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="txt_sidebar_ar">{{ __('Sidebar Text(AR)') }}
+                                            <label for="txt_sidebar_ar">{{ __('Sidebar Text(VI)') }}
                                                 <span class="text-danger">*</span></label>
                                             <input type="text" class="form-control"
-                                                   placeholder="{{ __('Sidebar Text(AR)') }}" id="txt_sidebar_ar"
+                                                   placeholder="{{ __('Sidebar Text(VI)') }}" id="txt_sidebar_ar"
                                                    name="sidebar_ar" value="{{ $data->sidebar_ar }}"/>
                                         </div>
                                     </div>
@@ -136,10 +136,10 @@
                                             <div class="d-md-none mb-2"></div>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="txt_header_ar">{{ __('Header Text(AR)') }}
+                                            <label for="txt_header_ar">{{ __('Header Text(VI)') }}
                                                 <span class="text-danger">*</span></label>
                                             <textarea class="form-control" id="txt_header_ar" name="header_ar"
-                                                      placeholder="{{ __('Header Text(AR)') }}"
+                                                      placeholder="{{ __('Header Text(VI)') }}"
                                                       rows="2">{{ $data->header_ar }}</textarea>
                                         </div>
                                     </div>

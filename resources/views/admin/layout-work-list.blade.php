@@ -186,7 +186,7 @@
                                     <tr>
                                         <th title="Field #1">#</th>
                                         <th title="Field #2">Project Name</th>
-                                        <th title="Field #3">Project Name (AR)</th>
+                                        <th title="Field #3">Project Name (VI)</th>
                                         <th title="Field #4">Category</th>
                                         <th title="Field #5">Image</th>
                                         <th title="Field #6">Order</th>
@@ -243,7 +243,7 @@
                                 <div class="d-md-none mb-2"></div>
                             </div>
                             <div class="form-group">
-                                <label for="txt_title_ar">Title (AR)<span class="text-danger">*</span></label>
+                                <label for="txt_title_ar">Title (VI)<span class="text-danger">*</span></label>
                                 <input type="text" class="form-control"
                                        placeholder="{{ __('Name (vi)') }}"
                                        name="project_name_ar" required id="txt_title_ar" />

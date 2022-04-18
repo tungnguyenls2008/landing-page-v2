@@ -124,7 +124,7 @@
                                                 <div class="mb-2"></div>
                                             </div>
                                             <div class="col-md-4">
-                                                <label for="txt_title_ar">Name (AR)<span class="text-danger">*</span></label>
+                                                <label for="txt_title_ar">Name (VI)<span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control"
                                                        placeholder="{{ __('Name (ar)') }}"
                                                        name="name_ar" required id="txt_title_ar" />
@@ -159,7 +159,7 @@
                                     <tr>
                                         <th title="Field #1">#</th>
                                         <th title="Field #2">Name</th>
-                                        <th title="Field #3">Name (AR)</th>
+                                        <th title="Field #3">Name (VI)</th>
                                         <th title="Field #5">Image</th>
                                         <th title="Field #6">Order</th>
                                         <th title="Field #7">Actions</th>
@@ -214,7 +214,7 @@
                                 <div class="d-md-none mb-2"></div>
                             </div>
                             <div class="form-group">
-                                <label for="txt_title_ar">Title (AR)<span class="text-danger">*</span></label>
+                                <label for="txt_title_ar">Title (VI)<span class="text-danger">*</span></label>
                                 <input type="text" class="form-control"
                                        placeholder="{{ __('Name (ar)') }}"
                                        name="name_ar" required id="txt_title_ar" />

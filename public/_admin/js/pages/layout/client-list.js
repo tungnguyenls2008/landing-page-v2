@@ -24,8 +24,8 @@ var ClientListPage = function () {
         title: '#',
         width: 20
       }, {
-        field: 'Project Name (AR)',
-        title: 'Project Name (AR)',
+        field: 'Project Name (VI)',
+        title: 'Project Name (VI)',
         responsive: {
           visible: 'md',
           hidden: 'sm'

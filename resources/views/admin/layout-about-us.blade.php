@@ -118,10 +118,10 @@
                                             <div class="d-md-none mb-2"></div>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="txt_sidebar_ar">{{ __('Sidebar Text(AR)') }}
+                                            <label for="txt_sidebar_ar">{{ __('Sidebar Text(VI)') }}
                                                 <span class="text-danger">*</span></label>
                                             <input type="text" class="form-control"
-                                                   placeholder="{{ __('Sidebar Text(AR)') }}" id="txt_sidebar_ar"
+                                                   placeholder="{{ __('Sidebar Text(VI)') }}" id="txt_sidebar_ar"
                                                    name="sidebar_ar" value="{{ $data->sidebar_ar }}"/>
                                         </div>
                                     </div>
@@ -136,10 +136,10 @@
                                             <div class="d-md-none mb-2"></div>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="txt_header_ar">{{ __('Header Text(AR)') }}
+                                            <label for="txt_header_ar">{{ __('Header Text(VI)') }}
                                                 <span class="text-danger">*</span></label>
                                             <textarea class="form-control" id="txt_header_ar" name="header_ar"
-                                                      placeholder="{{ __('Header Text(AR)') }}"
+                                                      placeholder="{{ __('Header Text(VI)') }}"
                                                       rows="2">{{ $data->header_ar }}</textarea>
                                         </div>
                                     </div>
@@ -154,10 +154,10 @@
                                             <div class="d-md-none mb-2"></div>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="txt_content_ar">{{ __('Content Text(AR)') }}
+                                            <label for="txt_content_ar">{{ __('Content Text(VI)') }}
                                                 <span class="text-danger">*</span></label>
                                             <textarea class="form-control" id="txt_content_ar" name="content_ar"
-                                                      placeholder="{{ __('Content Text(AR)') }}"
+                                                      placeholder="{{ __('Content Text(VI)') }}"
                                                       rows="2">{{ $data->content_ar }}</textarea>
                                         </div>
                                     </div>
@@ -173,10 +173,10 @@
                                             <div class="d-md-none mb-2"></div>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="txt_highlight_ar">{{ __('Highlight text in Content(AR)') }}
+                                            <label for="txt_highlight_ar">{{ __('Highlight text in Content(VI)') }}
                                                 <span class="text-danger">*</span></label>
                                             <input type="text" class="form-control"
-                                                   placeholder="{{ __('Highlight text in Content(AR)') }}"
+                                                   placeholder="{{ __('Highlight text in Content(VI)') }}"
                                                    value="{{ $data->highlight_ar }}" id="txt_highlight_ar"
                                                    name="highlight_ar"/>
                                         </div>
@@ -192,10 +192,10 @@
                                             <div class="d-md-none mb-2"></div>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="txt_description_ar">{{ __('Description(AR)') }}
+                                            <label for="txt_description_ar">{{ __('Description(VI)') }}
                                                 <span class="text-danger">*</span></label>
                                             <textarea class="form-control" id="txt_description_ar" name="description_ar"
-                                                      placeholder="{{ __('Description(AR)') }}"
+                                                      placeholder="{{ __('Description(VI)') }}"
                                                       rows="2">{{ $data->description_ar }}</textarea>
                                         </div>
                                     </div>
