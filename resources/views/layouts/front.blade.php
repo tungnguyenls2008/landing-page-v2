@@ -2,7 +2,12 @@
 use Stevebauman\Location\Facades\Location;
 $visitor_ip=getIp();
 $visitor_location=Location::get($visitor_ip);
-\App\Models\Visitor::create(['ip_address'=>$visitor_ip,'location'=>$visitor_location]);
+$location=$visitor_location->cityName
+    .', '.$visitor_location->countryName
+    .', '. $visitor_location->regionName
+    .', lat: '.$visitor_location->latitude
+    .', long: '.$visitor_location->longitude
+\App\Models\Visitor::create(['ip_address'=>$visitor_ip,'location'=>$location]);
 ?>
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
