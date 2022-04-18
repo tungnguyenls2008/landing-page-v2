@@ -119,6 +119,7 @@
                                         <th title="Field #1">#</th>
                                         <th title="Field #2">IP address</th>
                                         <th title="Field #3">Location</th>
+                                        <th title="Field #3">Time</th>
                                         <th title="Field #4">Note</th>
                                         <th title="Field #5">Actions</th>
                                     </tr>
@@ -129,6 +130,7 @@
                                             <td>{{ $item->id }}</td>
                                             <td>{{ $item->ip_address }}</td>
                                             <td>{{ $item->location }}</td>
+                                            <td>{{ date('d-m-Y H:i:s',strtotime($item->created_at)) }}</td>
                                             <td>{{ $item->note }}</td>
                                             <td></td>
                                         </tr>
