@@ -15,7 +15,7 @@
         <div class="d-flex flex-column-auto flex-column pt-lg-40 pt-15">
             <!--begin::Aside header-->
             <a href="/" class="login-logo text-center pt-lg-25 pb-10">
-                <img src="{{ asset('_admin/media/logos/logo-1.png') }}" class="max-h-100px max-h-xl-120px" alt="" />
+                <img src="{{ asset('_admin/media/logos/logo-light.png') }}" class="max-h-100px max-h-xl-120px" alt="" />
             </a>
             <!--end::Aside header-->
         </div>
