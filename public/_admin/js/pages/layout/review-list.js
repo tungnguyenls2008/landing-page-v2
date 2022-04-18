@@ -24,15 +24,15 @@ var KTDatatableHtmlTableDemo = function () {
         title: '#',
         width: 20
       }, {
-        field: 'Client Name (AR)',
-        title: 'Client Name (AR)',
+        field: 'Client Name (VI)',
+        title: 'Client Name (VI)',
         responsive: {
           visible: 'md',
           hidden: 'sm'
         }
       }, {
-        field: 'Client Job (AR)',
-        title: 'Client Job (AR)',
+        field: 'Client Job (VI)',
+        title: 'Client Job (VI)',
         responsive: {
           visible: 'md',
           hidden: 'sm'

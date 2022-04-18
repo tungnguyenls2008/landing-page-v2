@@ -124,7 +124,7 @@
                                                 <div class="mb-2"></div>
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="txt_title_ar">Title (AR)<span class="text-danger">*</span></label>
+                                                <label for="txt_title_ar">Title (VI)<span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control"
                                                        placeholder="{{ __('Enter skill title (ar)') }}"
                                                        name="title_ar" required id="txt_title_ar" />
@@ -161,7 +161,7 @@
                                     <tr>
                                         <th title="Field #1">#</th>
                                         <th title="Field #2">Title</th>
-                                        <th title="Field #3">Title (AR)</th>
+                                        <th title="Field #3">Title (VI)</th>
                                         <th title="Field #4">Amount</th>
                                         <th title="Field #5">Order</th>
                                         <th title="Field #6">Actions</th>
@@ -212,7 +212,7 @@
                                 <div class="d-md-none mb-2"></div>
                             </div>
                             <div class="form-group">
-                                <label for="txt_title_ar">Title (AR)<span class="text-danger">*</span></label>
+                                <label for="txt_title_ar">Title (VI)<span class="text-danger">*</span></label>
                                 <input type="text" class="form-control"
                                        placeholder="{{ __('Enter skill title (ar)') }}"
                                        name="title_ar" required id="txt_title_ar" />

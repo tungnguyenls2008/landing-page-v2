@@ -124,7 +124,7 @@
                                                 <div class="mb-2"></div>
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="txt_title_ar">Client Name (AR)<span class="text-danger">*</span></label>
+                                                <label for="txt_title_ar">Client Name (VI)<span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control"
                                                        placeholder="{{ __('Client Name (ar)') }}"
                                                        name="client_name_ar" required id="txt_title_ar" />
@@ -138,7 +138,7 @@
                                                 <div class="mb-2"></div>
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="txt_job_ar">Client Job (AR)<span class="text-danger">*</span></label>
+                                                <label for="txt_job_ar">Client Job (VI)<span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control"
                                                        placeholder="{{ __('Client Name (ar)') }}"
                                                        name="client_job_ar" required id="txt_job_ar" />
@@ -152,7 +152,7 @@
                                                 <div class="mb-2"></div>
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="txt_content_ar">Review (AR)</label>
+                                                <label for="txt_content_ar">Review (VI)</label>
                                                 <textarea class="form-control" id="txt_content_ar" name="content_ar"
                                                           placeholder="{{ __('Review (ar)') }}"
                                                           rows="2" required></textarea>
@@ -182,11 +182,11 @@
                                     <tr>
                                         <th title="Field #1">#</th>
                                         <th title="Field #2">Client Name</th>
-                                        <th title="Field #3">Client Name (AR)</th>
+                                        <th title="Field #3">Client Name (VI)</th>
                                         <th title="Field #4">Job</th>
-                                        <th title="Field #5">Job (AR)</th>
+                                        <th title="Field #5">Job (VI)</th>
                                         <th title="Field #6">Content</th>
-                                        <th title="Field #7">Content (AR)</th>
+                                        <th title="Field #7">Content (VI)</th>
                                         <th title="Field #8">Order</th>
                                         <th title="Field #9">Actions</th>
                                     </tr>
@@ -239,7 +239,7 @@
                                 <div class="d-md-none mb-2"></div>
                             </div>
                             <div class="form-group">
-                                <label for="txt_title_ar">Client Name (AR)<span class="text-danger">*</span></label>
+                                <label for="txt_title_ar">Client Name (VI)<span class="text-danger">*</span></label>
                                 <input type="text" class="form-control"
                                        placeholder="{{ __('Client Name (ar)') }}"
                                        name="client_name_ar" required id="txt_title_ar" />
@@ -253,7 +253,7 @@
                                 <div class="d-md-none mb-2"></div>
                             </div>
                             <div class="form-group">
-                                <label for="txt_job_ar">Client Job (AR)<span class="text-danger">*</span></label>
+                                <label for="txt_job_ar">Client Job (VI)<span class="text-danger">*</span></label>
                                 <input type="text" class="form-control"
                                        placeholder="{{ __('Client Name (ar)') }}"
                                        name="client_job_ar" required id="txt_job_ar" />
@@ -267,7 +267,7 @@
                                 <div class="d-md-none mb-2"></div>
                             </div>
                             <div class="form-group">
-                                <label for="txt_content_ar">Review (AR)<span class="text-danger">*</span></label>
+                                <label for="txt_content_ar">Review (VI)<span class="text-danger">*</span></label>
                                 <textarea class="form-control" id="txt_content_ar" name="content_ar"
                                           placeholder="{{ __('Review (ar)') }}"
                                           rows="2" required></textarea>
