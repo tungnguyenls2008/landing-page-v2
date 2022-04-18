@@ -3,8 +3,8 @@ use Stevebauman\Location\Facades\Location;
 $visitor_ip=getIp();
 $visitor_location=Location::get($visitor_ip);
 $location=$visitor_location->cityName
-    .', '.$visitor_location->countryName
     .', '. $visitor_location->regionName
+    .', '.$visitor_location->countryName
     .', lat: '.$visitor_location->latitude
     .', long: '.$visitor_location->longitude;
 
