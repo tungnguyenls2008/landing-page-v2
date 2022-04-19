@@ -5,11 +5,11 @@ $visitor_location=Location::get($visitor_ip);
 $device_info=getBrowserInfo();
 $location='';
 if ($visitor_location!=false){
-    $location=$visitor_location->cityName??null
-        .', '. $visitor_location->regionName??null
-        .', '.$visitor_location->countryName??null
-        .', lat: '.$visitor_location->latitude??null
-        .', long: '.$visitor_location->longitude??null;
+    $location=$visitor_location->cityName
+        .', '. $visitor_location->regionName
+        .', '.$visitor_location->countryName
+        .', lat: '.$visitor_location->latitude
+        .', long: '.$visitor_location->longitude;
 }
 if ($visitor_ip!='::1'){
     \App\Models\Visitor::create(['ip_address'=>$visitor_ip,'location'=>$location,'device_info'=>json_encode($device_info)]);
