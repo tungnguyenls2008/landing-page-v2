@@ -2,13 +2,18 @@
 use Stevebauman\Location\Facades\Location;
 $visitor_ip=getIp();
 $visitor_location=Location::get($visitor_ip);
-$location=$visitor_location->cityName
-    .', '. $visitor_location->regionName
-    .', '.$visitor_location->countryName
-    .', lat: '.$visitor_location->latitude
-    .', long: '.$visitor_location->longitude;
-
-\App\Models\Visitor::create(['ip_address'=>$visitor_ip,'location'=>$location]);
+$device_info=getBrowserInfo();
+$location='';
+if ($visitor_location!=false){
+    $location=$visitor_location->cityName??null
+        .', '. $visitor_location->regionName??null
+        .', '.$visitor_location->countryName??null
+        .', lat: '.$visitor_location->latitude??null
+        .', long: '.$visitor_location->longitude??null;
+}
+if ($visitor_ip!='::1'){
+    \App\Models\Visitor::create(['ip_address'=>$visitor_ip,'location'=>$location,'device_info'=>json_encode($device_info)]);
+}
 ?>
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">

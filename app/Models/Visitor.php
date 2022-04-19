@@ -13,6 +13,7 @@ class Visitor extends Model
     protected $fillable = [
         'ip_address',
         'location',
+        'device_info',
         'note'
     ];
 }
