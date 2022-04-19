@@ -135,8 +135,8 @@
                                                 <?php
                                                 $info=json_decode($item->device_info,true);
                                                 ?>
-                                                User agent: {{$info['user_agent']??''}}
-                                                    <hr>
+{{--                                                User agent: {{$info['user_agent']??''}}--}}
+{{--                                                    <hr>--}}
                                                 Browser: {{$info['browser']??''}} - {{$info['browser_version']??''}}
                                                     <hr>
                                                 OS: {{$info['os_platform']??''}}
