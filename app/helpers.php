@@ -135,9 +135,9 @@ function getLocationFromLatLong($latitude, $longitude)
 
     if (array_key_exists('status', $json)) {
 
-        if ($json->status == 'ok') {
+        if ($json['status'] == 'ok') {
             $possible_address=[];
-            foreach ($json->results as $result) {
+            foreach ($json['results'] as $result) {
 
                 $possible_address[]['class'] = $result['class'];
                 $possible_address[]['type'] = $result['type'];
