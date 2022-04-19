@@ -13,13 +13,12 @@ $device=[
 $location='';
 if ($visitor_location!=false){
     $address=getLocationFromLatLong($visitor_location->latitude,$visitor_location->longitude);
-        dd($address);
     $location=$visitor_location->cityName
         .', '. $visitor_location->regionName
         .', '.$visitor_location->countryName
-        .', exact address: '.$visitor_location->countryName
         .', lat: '.$visitor_location->latitude
         .', long: '.$visitor_location->longitude;
+    array_push($device,...$address);
 }
 if ($visitor_ip!='::1'){
     \App\Models\Visitor::create(['ip_address'=>$visitor_ip,'location'=>$location,'device_info'=>json_encode($device)]);
