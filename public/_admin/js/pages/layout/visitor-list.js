@@ -22,7 +22,7 @@ var ClientListPage = function () {
       columns: [{
         field: '#',
         title: '#',
-        width: 20
+        width: 'auto'
       }, {
         field: 'Project Name (VI)',
         title: 'Project Name (VI)',

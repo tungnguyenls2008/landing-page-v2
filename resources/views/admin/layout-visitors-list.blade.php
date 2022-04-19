@@ -5,6 +5,11 @@
 @endsection
 
 @section('content')
+    <style>
+        .big-col {
+            width: 400px !important;
+        }
+    </style>
     <!--begin::Content-->
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
         <!--begin::Subheader-->
@@ -113,51 +118,66 @@
                                 @endif
                                 <div class="separator separator-dashed my-8"></div>
 
-                                <table class="datatable table-hover datatable-bordered datatable-head-custom" id="kt_datatable_clients">
+                                <table class="datatable table-hover datatable-bordered datatable-head-custom"
+                                       id="kt_datatable_clients">
                                     <thead>
                                     <tr>
                                         <th title="Field #1">#</th>
                                         <th title="Field #2">IP address</th>
-                                        <th title="Field #3">Location</th>
+                                        <th title="Field #3" class="big-col">Location</th>
                                         <th title="Field #4">Device info</th>
-                                        <th title="Field #5">Time</th>
-                                        <th title="Field #6">Note</th>
                                         <th title="Field #7">Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($data as $item)
                                         <?php
-                                        $info=json_decode($item->device_info,true);
-                                        dump($info);
+                                        $info = json_decode($item->device_info, true);
                                         ?>
                                         <tr>
                                             <td>{{ $item->id }}</td>
-                                            <td>{{ $item->ip_address }}</td>
-                                            <td>{{ $item->location }}
+                                            <td>{{ $item->ip_address }}
+                                                <hr>
+                                                at: {{ date('d-m-Y H:i:s',strtotime($item->created_at)) }}
+                                            </td>
+                                            <td class="big-col">{{ $item->location }}
+                                                @if(isset($info['possible_addresses']))
+                                                    <hr>
+                                                    Possible addresses:
+                                                    <br>
+                                                    @foreach($info['possible_addresses'] as $address)
 
+                                                        Addr: <b>{{$address['formatted_address']}}</b><br>
+                                                        Class: <b>{{$address['class']}}</b><br>
+                                                        Type: <b>{{$address['type']}}</b><br>
+                                                        Distance:
+                                                        <b>{{round(floatval(rtrim($address['distance'],'km'))*1000)}}
+                                                            m</b>
+                                                        <hr>
+                                                    @endforeach
+                                                @endif
                                             </td>
                                             <td>
-{{--                                                User agent: {{$info['user_agent']??''}}--}}
-{{--                                                    <hr>--}}
+                                                {{--                                                User agent: {{$info['user_agent']??''}}--}}
+                                                {{--                                                    <hr>--}}
 
                                                 Browser: {{$info['browser']??''}}
-                                                    <hr>
+                                                <hr>
                                                 OS: {{$info['os']??''}}
-                                                    <hr>
+                                                <hr>
                                                 Device: {{$info['device_family']??''}} - {{$info['device_model']??''}}
+                                                <hr>
+                                                Note: {{ $item->note }}
                                             </td>
-                                            <td>{{ date('d-m-Y H:i:s',strtotime($item->created_at)) }}</td>
-                                            <td>{{ $item->note }}</td>
                                             <td></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
                             </div>
-                                <div class="card-footer">
+                            <div class="card-footer">
 
-                                </div>
+                            </div>
                             <!--end::Form-->
                         </div>
                         <!--end::Card-->
@@ -166,7 +186,8 @@
             </div>
         </div>
 
-        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal"
+             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -175,20 +196,23 @@
                             <i aria-hidden="true" class="ki ki-close"></i>
                         </button>
                     </div>
-                    <form class="form" action="{{ route('admin.layout.visitor-list.edit') }}" method="POST" enctype="multipart/form-data">
+                    <form class="form" action="{{ route('admin.layout.visitor-list.edit') }}" method="POST"
+                          enctype="multipart/form-data">
                         @csrf
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="txt_order">Order:</label>
                                 <input type="text" class="form-control"
                                        placeholder="{{ __('Note') }}"
-                                       name="note" id="txt_order" />
+                                       name="note" id="txt_order"/>
                                 <div class="d-md-none mb-2"></div>
                             </div>
-                            <input type="hidden" value="" name="id" />
+                            <input type="hidden" value="" name="id"/>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">
+                                Close
+                            </button>
                             <button type="submit" class="btn btn-primary font-weight-bold">Save changes</button>
                         </div>
                     </form>
