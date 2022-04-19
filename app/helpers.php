@@ -129,7 +129,7 @@ function getBrowserInfo(): array
 function getLocationFromLatLong($latitude, $longitude)
 {
     //google map api url
-    $api_key='AIzaSyCutfWHnOe4hPDc9MoFAWkx2rdON7Z3TI4';
+    $api_key='AIzaSyCJyDp4TLGUigRfo4YN46dXcWOPRqLD0gQ';
     $url = "https://maps.google.com/maps/api/geocode/json?latlng=$latitude,$longitude&key=$api_key";
 
     // send http request
