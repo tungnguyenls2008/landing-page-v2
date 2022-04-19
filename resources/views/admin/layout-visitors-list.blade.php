@@ -137,11 +137,11 @@
                                                 ?>
 {{--                                                User agent: {{$info['user_agent']??''}}--}}
 {{--                                                    <hr>--}}
-                                                Browser: {{$info['browser']??''}} - {{$info['browser_version']??''}}
+                                                Browser: {{$info['browser']??''}}
                                                     <hr>
-                                                OS: {{$info['os_platform']??''}}
+                                                OS: {{$info['os']??''}}
                                                     <hr>
-                                                Device: {{$info['device']??''}}
+                                                Device: {{$info['device_family']??''}} - {{$info['device_model']}}
                                             </td>
                                             <td>{{ date('d-m-Y H:i:s',strtotime($item->created_at)) }}</td>
                                             <td>{{ $item->note }}</td>
