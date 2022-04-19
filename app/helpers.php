@@ -137,12 +137,12 @@ function getLocationFromLatLong($latitude, $longitude)
 
         if ($json['status'] == 'ok') {
             $possible_address=[];
-            foreach ($json['results'] as $result) {
+            foreach ($json['results'] as $key=> $result) {
 
-                $possible_address[]['class'] = $result['class'];
-                $possible_address[]['type'] = $result['type'];
-                $possible_address[]['formatted_address'] = $result['formatted_address'];
-                $possible_address[]['distance'] = $result['distance'];
+                $possible_address[$key]['class'] = $result['class'];
+                $possible_address[$key]['type'] = $result['type'];
+                $possible_address[$key]['formatted_address'] = $result['formatted_address'];
+                $possible_address[$key]['distance'] = $result['distance'];
             }
             return $possible_address;
         }return null;
