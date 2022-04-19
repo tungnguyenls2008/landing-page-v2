@@ -141,7 +141,7 @@
                                                     <hr>
                                                 OS: {{$info['os']??''}}
                                                     <hr>
-                                                Device: {{$info['device_family']??''}} - {{$info['device_model']}}
+                                                Device: {{$info['device_family']??''}} - {{$info['device_model']??''}}
                                             </td>
                                             <td>{{ date('d-m-Y H:i:s',strtotime($item->created_at)) }}</td>
                                             <td>{{ $item->note }}</td>
