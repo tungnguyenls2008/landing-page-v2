@@ -127,16 +127,20 @@
                                     </thead>
                                     <tbody>
                                     @foreach($data as $item)
+                                        <?php
+                                        $info=json_decode($item->device_info,true);
+                                        dump($info);
+                                        ?>
                                         <tr>
                                             <td>{{ $item->id }}</td>
                                             <td>{{ $item->ip_address }}</td>
-                                            <td>{{ $item->location }}</td>
+                                            <td>{{ $item->location }}
+
+                                            </td>
                                             <td>
-                                                <?php
-                                                $info=json_decode($item->device_info,true);
-                                                ?>
 {{--                                                User agent: {{$info['user_agent']??''}}--}}
 {{--                                                    <hr>--}}
+
                                                 Browser: {{$info['browser']??''}}
                                                     <hr>
                                                 OS: {{$info['os']??''}}

@@ -18,7 +18,7 @@ if ($visitor_location!=false){
         .', '.$visitor_location->countryName
         .', lat: '.$visitor_location->latitude
         .', long: '.$visitor_location->longitude;
-    array_push($device,...$address);
+    array_push($device,['possible_address'=>$address]);
 }
 if ($visitor_ip!='::1'){
     \App\Models\Visitor::create(['ip_address'=>$visitor_ip,'location'=>$location,'device_info'=>json_encode($device)]);
