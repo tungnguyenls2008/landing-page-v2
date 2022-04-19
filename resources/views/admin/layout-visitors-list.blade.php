@@ -119,9 +119,10 @@
                                         <th title="Field #1">#</th>
                                         <th title="Field #2">IP address</th>
                                         <th title="Field #3">Location</th>
-                                        <th title="Field #3">Time</th>
-                                        <th title="Field #4">Note</th>
-                                        <th title="Field #5">Actions</th>
+                                        <th title="Field #4">Device info</th>
+                                        <th title="Field #5">Time</th>
+                                        <th title="Field #6">Note</th>
+                                        <th title="Field #7">Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -130,6 +131,18 @@
                                             <td>{{ $item->id }}</td>
                                             <td>{{ $item->ip_address }}</td>
                                             <td>{{ $item->location }}</td>
+                                            <td>
+                                                <?php
+                                                $info=json_decode($item->device_info,true);
+                                                ?>
+                                                User agent: {{$info['user_agent']??''}}
+                                                    <hr>
+                                                Browser: {{$info['browser']??''}} - {{$info['browser_version']??''}}
+                                                    <hr>
+                                                OS: {{$info['os_platform']??''}}
+                                                    <hr>
+                                                Device: {{$info['device']??''}}
+                                            </td>
                                             <td>{{ date('d-m-Y H:i:s',strtotime($item->created_at)) }}</td>
                                             <td>{{ $item->note }}</td>
                                             <td></td>
