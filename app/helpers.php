@@ -130,7 +130,7 @@ function getLocationFromLatLong($latitude, $longitude)
 {
     //google map api url
     $api_key='AIzaSyCJyDp4TLGUigRfo4YN46dXcWOPRqLD0gQ';
-    $url = "https://maps.google.com/maps/api/geocode/json?latlng=$latitude,$longitude&key=$api_key";
+    $url = "https://maps.google.com/maps/api/geocode/json?latlng=$latitude,$longitude&sensor=false";
 
     // send http request
     $geocode = file_get_contents($url);
