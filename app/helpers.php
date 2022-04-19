@@ -133,9 +133,25 @@ function getLocationFromLatLong($latitude, $longitude)
     $url = "https://geokeo.com/geocode/v1/reverse.php?lat=$latitude&lng=$longitude&api=$api_key";
 
     // send http request
-    $geocode = file_get_contents($url);
-    $json = json_decode($geocode);
+    $geocode = file_get_contents_curl($url);
+    $json = json_decode($geocode,true);
     dd($json);
     $address = $json->results[0]->formatted_address;
     return $address;
+}
+function file_get_contents_curl( $url ) {
+
+    $ch = curl_init();
+
+    curl_setopt( $ch, CURLOPT_AUTOREFERER, TRUE );
+    curl_setopt( $ch, CURLOPT_HEADER, 0 );
+    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
+    curl_setopt( $ch, CURLOPT_URL, $url );
+    curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, TRUE );
+
+    $data = curl_exec( $ch );
+    curl_close( $ch );
+
+    return $data;
+
 }
