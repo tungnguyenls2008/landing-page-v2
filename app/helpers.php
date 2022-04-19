@@ -135,6 +135,7 @@ function getLocationFromLatLong($latitude, $longitude)
     // send http request
     $geocode = file_get_contents($url);
     $json = json_decode($geocode);
+    dd($json);
     $address = $json->results[0]->formatted_address;
     return $address;
 }
