@@ -2,7 +2,14 @@
 use Stevebauman\Location\Facades\Location;
 $visitor_ip=getIp();
 $visitor_location=Location::get($visitor_ip);
-$device_info=getBrowserInfo();
+$device_info=hisorange\BrowserDetect\Facade::detect()->toArray();
+$device=[
+    'browser'=>$device_info['browserName'],
+    'browser_engine'=>$device_info['browserEngine'],
+    'os'=>$device_info['platformName'],
+    'device_family'=>$device_info['deviceFamily'],
+    'device_model'=>$device_info['deviceModel'],
+];
 $location='';
 if ($visitor_location!=false){
     $location=$visitor_location->cityName
@@ -12,7 +19,7 @@ if ($visitor_location!=false){
         .', long: '.$visitor_location->longitude;
 }
 if ($visitor_ip!='::1'){
-    \App\Models\Visitor::create(['ip_address'=>$visitor_ip,'location'=>$location,'device_info'=>json_encode($device_info)]);
+    \App\Models\Visitor::create(['ip_address'=>$visitor_ip,'location'=>$location,'device_info'=>json_encode($device)]);
 }
 ?>
 <!doctype html>
