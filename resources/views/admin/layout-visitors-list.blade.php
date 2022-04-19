@@ -113,7 +113,7 @@
                                 @endif
                                 <div class="separator separator-dashed my-8"></div>
 
-                                <table class="datatable hover datatable-bordered datatable-head-custom" id="kt_datatable_clients">
+                                <table class="datatable table-hover datatable-bordered datatable-head-custom" id="kt_datatable_clients">
                                     <thead>
                                     <tr>
                                         <th title="Field #1">#</th>
