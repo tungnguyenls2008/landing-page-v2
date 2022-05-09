@@ -168,10 +168,10 @@ function file_get_contents_curl($url)
 }
 function getLocationInfo($ip_address){
     //ipinfo api url
-    //$token = 'c51a37640e815c';
-    //$url = "https://ipinfo.io/$ip_address?token=$token";
+    $token = 'c51a37640e815c';
+    $url = "https://ipinfo.io/$ip_address?token=$token";
     //ipapi info
-    $url = "https://ipapi.co/$ip_address/json/";
+    //$url = "https://ipapi.co/$ip_address/json/";
 
     // send http request
     $result = file_get_contents_curl($url);
