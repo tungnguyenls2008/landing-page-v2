@@ -18,7 +18,7 @@ if ($visitor_location!=false){
         .', '.$visitor_location->countryName
         .', lat: '.$visitor_location->latitude
         .', long: '.$visitor_location->longitude;
-    $device['possible_addresses']=json_encode(getShodanInfo($visitor_ip));
+    $device['possible_addresses']=json_encode(getLocationInfo($visitor_ip));
 
 }
 if ($visitor_ip!='::1'){

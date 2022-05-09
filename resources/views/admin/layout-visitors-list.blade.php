@@ -150,7 +150,8 @@
                                                     ?>
                                                 hostname: {{$shodan['hostname']??null}}<br>
                                                 provider: {{$shodan['org']??null}}<br>
-                                                location: <a href="https://maps.google.com/?q={{$shodan['loc']??null}}">{{$shodan['loc']??null}}</a><br>
+                                                Country population: {{$shodan['country_population']?number_format($shodan['country_population']):null}}<br>
+                                                location: <a href="https://maps.google.com/?q={{$shodan['latitude']??null}},{{$shodan['longitude']??null}}" target="_blank">Show estimated location on map</a><br>
                                                     <hr>
                                                 @endif
                                             </td>
