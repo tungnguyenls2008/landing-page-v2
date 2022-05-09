@@ -143,18 +143,10 @@
                                             <td class="big-col">{{ $item->location }}
                                                 @if(isset($info['possible_addresses']))
                                                     <hr>
-                                                    Possible addresses:
+                                                    Shodan info:
                                                     <br>
-                                                    @foreach($info['possible_addresses'] as $address)
-
-                                                        Addr: <b>{{$address['formatted_address']}}</b><br>
-                                                        Class: <b>{{$address['class']}}</b><br>
-                                                        Type: <b>{{$address['type']}}</b><br>
-                                                        Distance:
-                                                        <b>{{round(floatval(rtrim($address['distance'],'km'))*1000)}}
-                                                            m</b>
-                                                        <hr>
-                                                    @endforeach
+                                                    {{$info['possible_addresses']}}
+                                                    <hr>
                                                 @endif
                                             </td>
                                             <td>
