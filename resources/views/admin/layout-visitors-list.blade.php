@@ -150,7 +150,7 @@
                                                     ?>
                                                 hostname: {{$shodan['hostname']??null}}<br>
                                                 provider: {{$shodan['org']??null}}<br>
-                                                location: <a href="https://maps.google.com/?q={{$shodan['loc']??null}}"></a>{{$shodan['loc']??null}}<br>
+                                                location: <a href="https://maps.google.com/?q={{$shodan['loc']??null}}">{{$shodan['loc']??null}}</a><br>
                                                     <hr>
                                                 @endif
                                             </td>
