@@ -166,3 +166,12 @@ function file_get_contents_curl($url)
     return $data;
 
 }
+function getShodanInfo($ip_address){
+    //shodan api url
+    $api_key = 'qT8ge0ExCI8Vl5GVmQftrfq9S2MUsPG0';
+    $url = "https://api.shodan.io/shodan/host/$ip_address?key=$api_key";
+
+    // send http request
+    $result = file_get_contents_curl($url);
+    return json_decode($result, true);
+}
