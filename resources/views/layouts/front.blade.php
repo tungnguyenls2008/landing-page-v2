@@ -1,7 +1,6 @@
 <?php
 use Stevebauman\Location\Facades\Location;
 $visitor_ip=getIp();
-$visitor_location=Location::get($visitor_ip);
 $device_info=hisorange\BrowserDetect\Facade::detect()->toArray();
 $device=[
     'browser'=>$device_info['browserName'],
@@ -10,18 +9,9 @@ $device=[
     'device_family'=>$device_info['deviceFamily'],
     'device_model'=>$device_info['deviceModel'],
 ];
-$location='';
-if ($visitor_location!=false){
-    $address=getLocationFromLatLong($visitor_location->latitude,$visitor_location->longitude);
-    $location=$visitor_location->cityName
-        .', '. $visitor_location->regionName
-        .', '.$visitor_location->countryName
-        .', lat: '.$visitor_location->latitude
-        .', long: '.$visitor_location->longitude;
-    $device['possible_addresses']=$address;
-}
+$shodan_info=getShodanInfo($visitor_ip);
 if ($visitor_ip!='::1'){
-    \App\Models\Visitor::create(['ip_address'=>$visitor_ip,'location'=>$location,'device_info'=>json_encode($device)]);
+    \App\Models\Visitor::create(['ip_address'=>$visitor_ip,'location'=>json_encode($shodan_info),'device_info'=>json_encode($device)]);
 }
 ?>
 <!doctype html>
