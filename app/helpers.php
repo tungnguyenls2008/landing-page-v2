@@ -167,9 +167,9 @@ function file_get_contents_curl($url)
 
 }
 function getShodanInfo($ip_address){
-    //shodan api url
-    $api_key = 'qT8ge0ExCI8Vl5GVmQftrfq9S2MUsPG0';
-    $url = "https://api.shodan.io/shodan/host/$ip_address?key=$api_key";
+    //ipinfo api url
+    $token = 'c51a37640e815c';
+    $url = "https://ipinfo.io/$ip_address?token=$token";
 
     // send http request
     $result = file_get_contents_curl($url);
