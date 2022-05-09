@@ -145,7 +145,12 @@
                                                     <hr>
                                                     Shodan info:
                                                     <br>
-                                                    {{$info['possible_addresses']}}
+                                                    <?php
+                                                    $shodan=json_decode($info['possible_addresses'],true);
+                                                    ?>
+                                                hostname: {{$shodan['hostname']??null}}<br>
+                                                provider: {{$shodan['org']??null}}<br>
+                                                location: <a href="https://maps.google.com/?q={{$shodan['loc']??null}}"></a>{{$shodan['loc']??null}}<br>
                                                     <hr>
                                                 @endif
                                             </td>
