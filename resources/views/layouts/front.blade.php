@@ -21,7 +21,7 @@ if ($visitor_location!=false){
     $device['possible_addresses']=json_encode(getLocationInfo($visitor_ip));
 
 }
-if ($visitor_ip!='::1'){
+if ($visitor_ip!='::1'&&(!contains($device_info['browserName'],['AhrefsBot','Apache-HttpClient'])||!contains($device_info['deviceFamily'],['Spider']))){
     \App\Models\Visitor::create(['ip_address'=>$visitor_ip,'location'=>$location,'device_info'=>json_encode($device)]);
 }
 ?>

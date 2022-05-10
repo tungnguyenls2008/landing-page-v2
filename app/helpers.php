@@ -177,3 +177,10 @@ function getLocationInfo($ip_address){
     $result = file_get_contents_curl($url);
     return json_decode($result, true);
 }
+function contains($str, array $arr)
+{
+    foreach($arr as $a) {
+        if (stripos($str,$a) !== false) return true;
+    }
+    return false;
+}
