@@ -1,31 +1,31 @@
 <?php
 use Stevebauman\Location\Facades\Location;
-$visitor_ip=getIp();
-$visitor_location=Location::get($visitor_ip);
-$device_info=hisorange\BrowserDetect\Facade::detect()->toArray();
-$device=[
-    'browser'=>$device_info['browserName'],
-    'browser_engine'=>$device_info['browserEngine'],
-    'os'=>$device_info['platformName'],
-    'device_family'=>$device_info['deviceFamily'],
-    'device_model'=>$device_info['deviceModel'],
-];
-$location='';
-if ($visitor_location!=false){
-    $address=getLocationFromLatLong($visitor_location->latitude,$visitor_location->longitude);
-    $location=$visitor_location->cityName
-        .', '. $visitor_location->regionName
-        .', '.$visitor_location->countryName
-        .', lat: '.$visitor_location->latitude
-        .', long: '.$visitor_location->longitude;
-    $device['possible_addresses']=json_encode(getLocationInfo($visitor_ip));
+$visitor_ip = getIp();
+$visitor_location = Location::get($visitor_ip);
+$device_info = hisorange\BrowserDetect\Facade::detect()->toArray();
+if ($visitor_ip != '::1' && (!contains($device_info['browserName'], ['AhrefsBot', 'Apache-HttpClient']) || !contains($device_info['deviceFamily'], ['Spider']))) {
+    $device = [
+        'browser' => $device_info['browserName'],
+        'browser_engine' => $device_info['browserEngine'],
+        'os' => $device_info['platformName'],
+        'device_family' => $device_info['deviceFamily'],
+        'device_model' => $device_info['deviceModel'],
+    ];
+    $location = '';
+    if ($visitor_location != false) {
+        $address = getLocationFromLatLong($visitor_location->latitude, $visitor_location->longitude);
+        $location = $visitor_location->cityName
+            . ', ' . $visitor_location->regionName
+            . ', ' . $visitor_location->countryName
+            . ', lat: ' . $visitor_location->latitude
+            . ', long: ' . $visitor_location->longitude;
+        $device['possible_addresses'] = json_encode(getLocationInfo($visitor_ip));
 
-}
-if ($visitor_ip!='::1'&&(!contains($device_info['browserName'],['AhrefsBot','Apache-HttpClient'])||!contains($device_info['deviceFamily'],['Spider']))){
-    \App\Models\Visitor::create(['ip_address'=>$visitor_ip,'location'=>$location,'device_info'=>json_encode($device)]);
+    }
+    \App\Models\Visitor::create(['ip_address' => $visitor_ip, 'location' => $location, 'device_info' => json_encode($device)]);
 }
 ?>
-<!doctype html>
+    <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
 <head>
     <meta charset="utf-8">
@@ -49,7 +49,12 @@ if ($visitor_ip!='::1'&&(!contains($device_info['browserName'],['AhrefsBot','Apa
 </head>
 <body class="body-full-page">
 
-<div class="loader"><div class="spinner"><div class="double-bounce1"></div><div class="double-bounce2"></div></div></div>
+<div class="loader">
+    <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+</div>
 
 <!-- Content CLick Capture-->
 
@@ -64,22 +69,22 @@ if ($visitor_ip!='::1'&&(!contains($device_info['browserName'],['AhrefsBot','Apa
         <a href="{{ route('set-locale', 'ar') }}" class="{{ session('locale') == 'ar' ? 'active' : '' }}">VIE</a>
     </div>
     <ul class="menu-list right-boxed">
-        <li  data-menuanchor="page1">
-            <a  href="#page1">{{ __('Home') }}</a>
+        <li data-menuanchor="page1">
+            <a href="#page1">{{ __('Home') }}</a>
         </li>
-        <li  data-menuanchor="page2">
+        <li data-menuanchor="page2">
             <a href="#page2">{{ __('About us') }}</a>
         </li>
-        <li  data-menuanchor="page3">
+        <li data-menuanchor="page3">
             <a href="#page3">{{ __('Projects') }}</a>
         </li>
-        <li  data-menuanchor="page4">
+        <li data-menuanchor="page4">
             <a href="#page4">{{ __('Services') }}</a>
         </li>
-        <li  data-menuanchor="page6">
+        <li data-menuanchor="page6">
             <a href="#page6">{{ __('Reviews') }}</a>
         </li>
-        <li  data-menuanchor="page7">
+        <li data-menuanchor="page7">
             <a href="#page7">{{ __('Contact') }}</a>
         </li>
     </ul>
@@ -104,7 +109,9 @@ if ($visitor_ip!='::1'&&(!contains($device_info['browserName'],['AhrefsBot','Apa
                 <a href="tel:{{ $contact->phone }}" class="fa fa-mobile-phone"></a>
             @endif
         </div>
-        <div class="copy">© {{ $general->brand_name }} <?php echo date("Y"); ?>. All Rights Reseverd<br> Design by Mrfocuskw</div>
+        <div class="copy">© {{ $general->brand_name }} <?php echo date("Y"); ?>. All Rights Reseverd<br> Design by
+            Mrfocuskw
+        </div>
     </div>
 </div>
 
@@ -112,7 +119,8 @@ if ($visitor_ip!='::1'&&(!contains($device_info['browserName'],['AhrefsBot','Apa
 
 <header class="navbar navbar-2 navbar-white boxed">
     <div class="navbar-bg"></div>
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse"
+            aria-expanded="false">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -120,10 +128,10 @@ if ($visitor_ip!='::1'&&(!contains($device_info['browserName'],['AhrefsBot','Apa
 
     <a class="brand" href="#">
         <img class="brand-img" alt="" src="{{ asset('images/logo/' . $general->logo) }}">
-{{--        <div class="brand-info">--}}
-{{--            <div class="brand-name">{{ $general->brand_name }}</div>--}}
-{{--            <div class="brand-text">creative template</div>--}}
-{{--        </div>--}}
+        {{--        <div class="brand-info">--}}
+        {{--            <div class="brand-name">{{ $general->brand_name }}</div>--}}
+        {{--            <div class="brand-text">creative template</div>--}}
+        {{--        </div>--}}
     </a>
 
     <div class="social-list hidden-xs">
@@ -162,7 +170,8 @@ if ($visitor_ip!='::1'&&(!contains($device_info['browserName'],['AhrefsBot','Apa
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <span class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+                <span class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></span>
                 <h2 class="modal-title">Thank you</h2>
                 <p class="modal-subtitle">Your message is successfully sent...</p>
             </div>
@@ -176,7 +185,8 @@ if ($visitor_ip!='::1'&&(!contains($device_info['browserName'],['AhrefsBot','Apa
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <span class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+                <span class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></span>
                 <h2 class="modal-title">Sorry</h2>
                 <p class="modal-subtitle"> Something went wrong </p>
             </div>
@@ -193,7 +203,6 @@ if ($visitor_ip!='::1'&&(!contains($device_info['browserName'],['AhrefsBot','Apa
 <script src="{{ asset('js/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('js/jquery.pagepiling.js') }}"></script>
-
 
 
 <!-- Scripts -->
