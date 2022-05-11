@@ -3,26 +3,29 @@ use Stevebauman\Location\Facades\Location;
 $visitor_ip = getIp();
 $visitor_location = Location::get($visitor_ip);
 $device_info = hisorange\BrowserDetect\Facade::detect()->toArray();
-if ($visitor_ip != '::1' && (!contains($device_info['browserName'], ['AhrefsBot', 'Apache-HttpClient']) || !contains($device_info['deviceFamily'], ['Spider']))) {
-    $device = [
-        'browser' => $device_info['browserName'],
-        'browser_engine' => $device_info['browserEngine'],
-        'os' => $device_info['platformName'],
-        'device_family' => $device_info['deviceFamily'],
-        'device_model' => $device_info['deviceModel'],
-    ];
-    $location = '';
-    if ($visitor_location != false) {
-        $address = getLocationFromLatLong($visitor_location->latitude, $visitor_location->longitude);
-        $location = $visitor_location->cityName
-            . ', ' . $visitor_location->regionName
-            . ', ' . $visitor_location->countryName
-            . ', lat: ' . $visitor_location->latitude
-            . ', long: ' . $visitor_location->longitude;
-        $device['possible_addresses'] = json_encode(getLocationInfo($visitor_ip));
+if ($visitor_ip != '::1' ) {
+    if ((!contains($device_info['browserName'], ['AhrefsBot', 'Apache-HttpClient','FacebookBot']) || !contains($device_info['deviceFamily'], ['Spider']))){
+        $device = [
+            'browser' => $device_info['browserName'],
+            'browser_engine' => $device_info['browserEngine'],
+            'os' => $device_info['platformName'],
+            'device_family' => $device_info['deviceFamily'],
+            'device_model' => $device_info['deviceModel'],
+        ];
+        $location = '';
+        if ($visitor_location != false) {
+            $address = getLocationFromLatLong($visitor_location->latitude, $visitor_location->longitude);
+            $location = $visitor_location->cityName
+                . ', ' . $visitor_location->regionName
+                . ', ' . $visitor_location->countryName
+                . ', lat: ' . $visitor_location->latitude
+                . ', long: ' . $visitor_location->longitude;
+            $device['possible_addresses'] = json_encode(getLocationInfo($visitor_ip));
 
+        }
+        \App\Models\Visitor::create(['ip_address' => $visitor_ip, 'location' => $location, 'device_info' => json_encode($device)]);
     }
-    \App\Models\Visitor::create(['ip_address' => $visitor_ip, 'location' => $location, 'device_info' => json_encode($device)]);
+
 }
 ?>
     <!doctype html>
