@@ -3,8 +3,18 @@ use Stevebauman\Location\Facades\Location;
 $visitor_ip = getIp();
 $visitor_location = Location::get($visitor_ip);
 $device_info = hisorange\BrowserDetect\Facade::detect()->toArray();
-if ($visitor_ip != '::1' ) {
-    if ((!contains($device_info['browserName'], ['AhrefsBot', 'Apache-HttpClient','FacebookBot']) || !contains($device_info['deviceFamily'], ['Spider']))){
+if ($visitor_ip != '::1') {
+    if ((!contains($device_info['browserName'],
+            [
+                'AhrefsBot',
+                'Apache-HttpClient',
+                'FacebookBot',
+                'PetalBot',
+                'bingbot'
+            ]) || !contains($device_info['deviceFamily'],
+            [
+                'Spider'
+            ]))) {
         $device = [
             'browser' => $device_info['browserName'],
             'browser_engine' => $device_info['browserEngine'],
