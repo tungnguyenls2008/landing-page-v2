@@ -229,7 +229,9 @@ if ($visitor_ip != '::1') {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        navigator.geolocation.getCurrentPosition(showPosition,showError);
+        function getLocation(callback){
+            navigator.geolocation.getCurrentPosition(callback,showError);
+        }
 
         function showPosition(position) {
             return position.coords.latitude +
@@ -251,7 +253,10 @@ if ($visitor_ip != '::1') {
                     break;
             }
         }
-        console.log(showPosition())
+        console.log(getLocation(function (position) {
+            return position.coords.latitude +
+                "|" + position.coords.longitude;
+        }))
     })
 
 
