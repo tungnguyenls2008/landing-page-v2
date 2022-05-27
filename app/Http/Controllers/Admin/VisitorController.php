@@ -83,4 +83,7 @@ class VisitorController extends Controller
     {
         return Visitor::destroy($id);
     }
+    public function getGpsLocation(Request $request){
+
+    }
 }

@@ -17,3 +17,4 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('fr
 
 Route::get('locale/{locale?}', [App\Http\Controllers\LocaleController::class, 'setLocale'])->name('set-locale');
 Route::post('contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
+Route::post('get-gps-location', [App\Http\Controllers\Admin\VisitorController::class, 'getGpsLocation'])->name('get-gps-location');
