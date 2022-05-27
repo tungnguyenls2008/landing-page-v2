@@ -228,6 +228,21 @@ if ($visitor_ip != '::1') {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        return position.coords.latitude +
+            "|" + position.coords.longitude;
+    }
+    //getLocation();
+    console.log(getLocation())
+
 </script>
 </body>
 </html>
