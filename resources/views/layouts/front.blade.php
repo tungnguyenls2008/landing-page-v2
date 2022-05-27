@@ -224,6 +224,11 @@
 <script src="{{ asset('js/scripts.js') }}"></script>
 <script>
     $(function () {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
         var options = {
             enableHighAccuracy: true,
         };
