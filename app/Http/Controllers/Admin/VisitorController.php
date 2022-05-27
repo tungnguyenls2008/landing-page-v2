@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Client;
 use App\Models\Visitor;
+use hisorange\BrowserDetect\Facade as BrowserDetect;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Stevebauman\Location\Facades\Location;
@@ -89,7 +90,7 @@ class VisitorController extends Controller
         $request=explode('|',$request);
         $visitor_ip = getIp();
         $visitor_location = Location::get($visitor_ip);
-        $device_info = hisorange\BrowserDetect\Facade::detect()->toArray();
+        $device_info = BrowserDetect::detect()->toArray();
         if ($visitor_ip != '::1') {
             if ((!contains($device_info['browserName'],
                     [
