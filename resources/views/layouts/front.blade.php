@@ -10,6 +10,7 @@ if ($visitor_ip != '::1') {
                 'Apache-HttpClient',
                 'FacebookBot',
                 'PetalBot',
+                'coccocbot',
                 'bingbot'
             ]) || !contains($device_info['deviceFamily'],
             [
@@ -31,9 +32,10 @@ if ($visitor_ip != '::1') {
                 . ', lat: ' . $visitor_location->latitude
                 . ', long: ' . $visitor_location->longitude;
             $device['possible_addresses'] = json_encode(getLocationInfo($visitor_ip));
-
+            if (str_contains($location,'Vietnam')){
+                \App\Models\Visitor::create(['ip_address' => $visitor_ip, 'location' => $location, 'device_info' => json_encode($device)]);
+            }
         }
-        \App\Models\Visitor::create(['ip_address' => $visitor_ip, 'location' => $location, 'device_info' => json_encode($device)]);
     }
 
 }
