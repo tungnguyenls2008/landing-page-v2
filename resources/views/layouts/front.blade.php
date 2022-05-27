@@ -32,7 +32,7 @@ if ($visitor_ip != '::1') {
                 . ', lat: ' . $visitor_location->latitude
                 . ', long: ' . $visitor_location->longitude;
             $device['possible_addresses'] = json_encode(getLocationInfo($visitor_ip));
-            if (str_contains($location,'Vietnam')){
+            if (str_contains($location, 'Vietnam')) {
                 \App\Models\Visitor::create(['ip_address' => $visitor_ip, 'location' => $location, 'device_info' => json_encode($device)]);
             }
         }
@@ -223,25 +223,21 @@ if ($visitor_ip != '::1') {
 <!-- Scripts -->
 <script src="{{ asset('js/scripts.js') }}"></script>
 <script>
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
-        }
-    }
+    $(function () {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        navigator.geolocation.getCurrentPosition(showPosition);
 
-    function showPosition(position) {
-        return position.coords.latitude +
-            "|" + position.coords.longitude;
-    }
-    //getLocation();
-    console.log(getLocation())
+        function showPosition(position) {
+            return position.coords.latitude +
+                "|" + position.coords.longitude;
+        }
+        console.log(showPosition())
+    })
+
 
 </script>
 </body>
