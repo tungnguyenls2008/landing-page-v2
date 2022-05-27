@@ -240,8 +240,18 @@ if ($visitor_ip != '::1') {
             var currentLatitude = position.coords.latitude;
             var currentLongitude = position.coords.longitude;
 
-            alert( currentLongitude + "|" + currentLatitude);
-
+            var result=currentLongitude + "|" + currentLatitude;
+            $.ajax({
+                url: "{{route('get-gps-location')}}",
+                cache: false,
+                method: 'POST',
+                data:{
+                    result:result
+                },
+                success: function(rs){
+                    console.log(rs)
+                }
+            });
         });
 
     })
