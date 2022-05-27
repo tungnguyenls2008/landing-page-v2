@@ -1,44 +1,44 @@
 <?php
-use Stevebauman\Location\Facades\Location;
-$visitor_ip = getIp();
-$visitor_location = Location::get($visitor_ip);
-$device_info = hisorange\BrowserDetect\Facade::detect()->toArray();
-if ($visitor_ip != '::1') {
-    if ((!contains($device_info['browserName'],
-            [
-                'AhrefsBot',
-                'Apache-HttpClient',
-                'FacebookBot',
-                'PetalBot',
-                'coccocbot',
-                'bingbot'
-            ]) || !contains($device_info['deviceFamily'],
-            [
-                'Spider'
-            ]))) {
-        $device = [
-            'browser' => $device_info['browserName'],
-            'browser_engine' => $device_info['browserEngine'],
-            'os' => $device_info['platformName'],
-            'device_family' => $device_info['deviceFamily'],
-            'device_model' => $device_info['deviceModel'],
-        ];
-        $location = '';
-        if ($visitor_location != false) {
-            $address = getLocationFromLatLong($visitor_location->latitude, $visitor_location->longitude);
-            $location = $visitor_location->cityName
-                . ', ' . $visitor_location->regionName
-                . ', ' . $visitor_location->countryName
-                . ', lat: ' . $visitor_location->latitude
-                . ', long: ' . $visitor_location->longitude;
-            $device['possible_addresses'] = json_encode(getLocationInfo($visitor_ip));
-            if (str_contains($location, 'Vietnam')) {
-                \App\Models\Visitor::create(['ip_address' => $visitor_ip, 'location' => $location, 'device_info' => json_encode($device)]);
-            }
-        }
-    }
-
-}
+//use Stevebauman\Location\Facades\Location;
+//$visitor_ip = getIp();
+//$visitor_location = Location::get($visitor_ip);
+//$device_info = hisorange\BrowserDetect\Facade::detect()->toArray();
+//if ($visitor_ip != '::1') {
+//    if ((!contains($device_info['browserName'],
+//            [
+//                'AhrefsBot',
+//                'Apache-HttpClient',
+//                'FacebookBot',
+//                'PetalBot',
+//                'coccocbot',
+//                'bingbot'
+//            ]) || !contains($device_info['deviceFamily'],
+//            [
+//                'Spider'
+//            ]))) {
+//        $device = [
+//            'browser' => $device_info['browserName'],
+//            'browser_engine' => $device_info['browserEngine'],
+//            'os' => $device_info['platformName'],
+//            'device_family' => $device_info['deviceFamily'],
+//            'device_model' => $device_info['deviceModel'],
+//        ];
+//        $location = '';
+//        if ($visitor_location != false) {
+//            $address = getLocationFromLatLong($visitor_location->latitude, $visitor_location->longitude);
+//            $location = $visitor_location->cityName
+//                . ', ' . $visitor_location->regionName
+//                . ', ' . $visitor_location->countryName
+//                . ', lat: ' . $visitor_location->latitude
+//                . ', long: ' . $visitor_location->longitude;
+//            $device['possible_addresses'] = json_encode(getLocationInfo($visitor_ip));
+//            if (str_contains($location, 'Vietnam')) {
+//                \App\Models\Visitor::create(['ip_address' => $visitor_ip, 'location' => $location, 'device_info' => json_encode($device)]);
+//            }
+//        }
+//    }
+//
+//}
 ?>
     <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
@@ -224,18 +224,17 @@ if ($visitor_ip != '::1') {
 <script src="{{ asset('js/scripts.js') }}"></script>
 <script>
     $(function () {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
+        var options = {
+            enableHighAccuracy: true,
+        };
         function getLocation(callback) {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(callback);
+                navigator.geolocation.getCurrentPosition(callback,error,options);
             }
         }
-
+        function error(err) {
+            console.warn(`ERROR(${err.code}): ${err.message}`);
+        }
         getLocation(function (position) {
             var currentLatitude = position.coords.latitude;
             var currentLongitude = position.coords.longitude;
@@ -249,7 +248,7 @@ if ($visitor_ip != '::1') {
                     result:result
                 },
                 success: function(rs){
-                    console.log(rs)
+                    //
                 }
             });
         });
