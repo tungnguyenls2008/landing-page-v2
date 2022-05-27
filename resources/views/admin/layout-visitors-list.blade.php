@@ -141,9 +141,9 @@
                                                 at: {{ date('d-m-Y H:i:s',strtotime($item->created_at)) }}
                                             </td>
                                             <td class="big-col">{{ $item->location }}
-                                                @if(isset($info['possible_addresses']))
+                                                @if(isset($info['lat'])&&isset($info['long']))
                                                     <hr>
-                                                    Shodan info:
+                                                    Location info:
                                                     <br>
                                                     <?php
                                                     $shodan=json_decode($info['possible_addresses'],true);
@@ -152,7 +152,7 @@
                                                 provider: {{$shodan['org']??null}}<br>
 {{--                                                Country population: {{isset($shodan['country_population'])?number_format($shodan['country_population']):null}}<br>--}}
 {{--                                                location: <a href="https://maps.google.com/?q={{$shodan['latitude']??null}},{{$shodan['longitude']??null}}" target="_blank">Show estimated location on map</a><br>--}}
-                                                location: <a href="https://maps.google.com/?q={{$shodan['loc']??null}}" target="_blank">Show estimated location on map</a><br>
+                                                location: <a href="https://maps.google.com/?q={{$info['lat']??null}},{{$info['long']??null}}" target="_blank">Show estimated location on map</a><br>
                                                     <hr>
                                                 @endif
                                             </td>
