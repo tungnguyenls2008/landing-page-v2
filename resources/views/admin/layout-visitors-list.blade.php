@@ -152,7 +152,7 @@
                                                 provider: {{$shodan['org']??null}}<br>
 {{--                                                Country population: {{isset($shodan['country_population'])?number_format($shodan['country_population']):null}}<br>--}}
 {{--                                                location: <a href="https://maps.google.com/?q={{$shodan['latitude']??null}},{{$shodan['longitude']??null}}" target="_blank">Show estimated location on map</a><br>--}}
-                                                location: <a href="https://maps.google.com/?q={{$info['lat']??null}},{{$info['long']??null}}" target="_blank">Show estimated location on map</a><br>
+                                                location: <a href="https://maps.google.com/?q={{$info['long']??null}},{{$info['lat']??null}}" target="_blank">Show estimated location on map</a><br>
                                                     <hr>
                                                 @endif
                                             </td>
