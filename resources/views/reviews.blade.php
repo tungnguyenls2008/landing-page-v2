@@ -15,14 +15,15 @@
                                     </div>
                                     <div class="col-md-5 col-lg-5  col-md-offset-1 col-lg-offset-2">
                                         <div class="review-carousel owl-carousel">
+
                                             @foreach($reviews as $review)
                                                 <div class="review-carousel-item">
                                                     <div class="text">
-                                                        <p class="pre-line">{{ app()->getLocale() == 'en' ? $review->content : $review->content_ar }}</p>
+                                                        <p class="pre-line">{{ app()->getLocale() == 'ar' ? $review->content_ar : $review->content }}</p>
                                                     </div>
                                                     <div class="review-author">
-                                                        <div class="author-name">{{ app()->getLocale() == 'en' ? $review->client_name : $review->client_name_ar }}</div>
-                                                        <i>{{ app()->getLocale() == 'en' ? $review->client_job : $review->client_job_ar }}</i>
+                                                        <div class="author-name">{{ app()->getLocale() == 'ar' ? $review->client_name_ar : $review->client_name }}</div>
+                                                        <i>{{ app()->getLocale() == 'en' ? $review->client_job_ar : $review->client_job }}</i>
                                                     </div>
                                                 </div>
                                             @endforeach
