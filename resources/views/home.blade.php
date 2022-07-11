@@ -62,10 +62,19 @@ $ar = $Utilities->processHighlightText($home->content_ar, $home->highlight_ar);
                                 <div class="row">
                                     <div class="col-md-8 col-lg-6">
                                         <p class="subtitle-top pre-line">{{ app()->getLocale() == 'en' ? $home->header : $home->header_ar }}</p>
-                                        <h1 class="display-2 text-white pre-line">{{ app()->getLocale() == 'en' ? $en['first'] : $ar['first'] }}<span class="text-primary">{{ app()->getLocale() == 'en' ? $en['middle'] : $ar['middle'] }}</span>{{app()->getLocale() == 'en' ? $en['last'] : $ar['last']}}</h1>
+                                        <h1 class="display-2 text-white pre-line">{{ app()->getLocale() == 'en' ? $en['first'] : $ar['first'] }}
+                                            <span class="text-primary"
+                                                  style="text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
+               1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;"
+                                            >{{ app()->getLocale() == 'en' ? $en['middle'] : $ar['middle'] }}</span>{{app()->getLocale() == 'en' ? $en['last'] : $ar['last']}}
+                                        </h1>
                                         <div style="width: max-content">
-                                            <a class="btn btn-warning pulse-button" href="{{asset('docs/NGUYEN-DUC-TUNG_vie.pdf')}}" target="_blank">@lang('Curriculum Vitae') (VIE)</a>&nbsp;&nbsp;&nbsp;
-                                            <a class="btn btn-warning pulse-button" href="{{asset('docs/NGUYEN-DUC-TUNG_eng.pdf')}}" target="_blank">@lang('Curriculum Vitae') (ENG)</a>
+                                            <a class="btn btn-warning pulse-button"
+                                               href="{{asset('docs/NGUYEN-DUC-TUNG_vie.pdf')}}"
+                                               target="_blank">@lang('Curriculum Vitae') (VIE)</a>&nbsp;&nbsp;&nbsp;
+                                            <a class="btn btn-warning pulse-button"
+                                               href="{{asset('docs/NGUYEN-DUC-TUNG_eng.pdf')}}"
+                                               target="_blank">@lang('Curriculum Vitae') (ENG)</a>
                                         </div>
                                         <div class="hr-bottom"></div>
                                     </div>
