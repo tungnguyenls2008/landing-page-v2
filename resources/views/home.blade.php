@@ -70,10 +70,10 @@ $ar = $Utilities->processHighlightText($home->content_ar, $home->highlight_ar);
                                         </h1>
                                         <div style="width: max-content">
                                             <a class="btn btn-warning pulse-button"
-                                               href="{{asset('docs/NGUYEN-DUC-TUNG_vie.pdf')}}"
+                                               href="{{asset('docs/NGUYEN-DUC-TUNG-vie.pdf')}}"
                                                target="_blank">@lang('Curriculum Vitae') (VIE)</a>&nbsp;&nbsp;&nbsp;
                                             <a class="btn btn-warning pulse-button"
-                                               href="{{asset('docs/NGUYEN-DUC-TUNG_eng.pdf')}}"
+                                               href="{{asset('docs/NGUYEN-DUC-TUNG-eng.pdf')}}"
                                                target="_blank">@lang('Curriculum Vitae') (ENG)</a>
                                         </div>
                                         <div class="hr-bottom"></div>
