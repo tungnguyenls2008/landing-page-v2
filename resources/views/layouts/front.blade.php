@@ -183,7 +183,7 @@
                 {{ session('locale') == 'en' ? 'CHAT WITH ME' : 'TRÒ CHUYỆN VỚI TÔI' }}
             </div>
             <div id="chatBody" class="chat_box_body">
-            <p><i>{{ session('locale') == 'en' ? 'Powered by OpenAI' : 'Tài trợ bởi OpenAI' }}</i></p>
+            <p><i>{{ session('locale') == 'en' ? 'Powered by OpenAI' : 'Hỗ trợ bởi OpenAI' }}</i></p>
             </div>
             <div class="chat_box_footer">
 
