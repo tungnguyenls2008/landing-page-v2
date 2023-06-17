@@ -71,7 +71,8 @@ $ar = $Utilities->processHighlightText($home->content_ar, $home->highlight_ar);
                                         <div style="width: max-content">
                                             <a class="btn btn-warning pulse-button"
                                                href="{{asset('docs/NGUYEN-DUC-TUNG-vie.pdf')}}"
-                                               target="_blank">@lang('Curriculum Vitae') (VIE)</a>&nbsp;&nbsp;&nbsp;
+                                               target="_blank">@lang('Curriculum Vitae') (VIE)</a>
+                                            <hr>
                                             <a class="btn btn-warning pulse-button"
                                                href="{{asset('docs/NGUYEN-DUC-TUNG-eng.pdf')}}"
                                                target="_blank">@lang('Curriculum Vitae') (ENG)</a>

@@ -83,6 +83,15 @@ Route::group(['as' => 'admin.', 'middleware' => ['auth', 'verified']], function 
         Route::get('/visitor-list/{id}', [App\Http\Controllers\Admin\VisitorController::class, 'get'])->name('visitor-list.get');
         Route::post('/visitor-list/edit', [App\Http\Controllers\Admin\VisitorController::class, 'update'])->name('visitor-list.edit');
         Route::delete('/visitor-list/{id}', [App\Http\Controllers\Admin\VisitorController::class, 'destroy'])->name('visitor-list.delete');
+        //Chat Content
+        Route::get('/chat-content', [App\Http\Controllers\Admin\VisitorController::class, 'index'])->name('visitor');
+        Route::post('/chat-content', [App\Http\Controllers\Admin\VisitorController::class, 'store'])->name('visitor.save');
+
+        Route::get('/chat-list', [App\Http\Controllers\Admin\ChatContentController::class, 'index'])->name('chat-list');
+        Route::post('/chat-list', [App\Http\Controllers\Admin\ChatContentController::class, 'store'])->name('chat-list.add');
+        Route::get('/chat-list/{id}', [App\Http\Controllers\Admin\ChatContentController::class, 'get'])->name('chat-list.get');
+        Route::post('/chat-list/edit', [App\Http\Controllers\Admin\ChatContentController::class, 'update'])->name('chat-list.edit');
+        Route::delete('/chat-list/{id}', [App\Http\Controllers\Admin\ChatContentController::class, 'destroy'])->name('chat-list.delete');
 
         //Reviews
         Route::get('/review', [App\Http\Controllers\Admin\LayoutReviewController::class, 'index'])->name('review');
