@@ -36,19 +36,19 @@ class ChatController extends Controller
         $answer=$d->choices[0]->message->content;
         $chatContent->answer=$answer;
         $chatContent->save();
-        $specialKeywords=['created by OpenAI','trợ lý ảo','tạo ra bởi OpenAI'];
+        $specialKeywords=['created by OpenAI','trợ lý ảo','tạo ra bởi OpenAI',' I assist you'];
         foreach ($specialKeywords as $keyword){
             if (str_contains($answer,$keyword)){
                 if (session('locale')=='en'){
-                    $answer='Quick contact me by phone: 0914 831 089, by mail: tungnguyenls2008@gmail.com
-                <br> You can find all of my information in this site.
-                <br> I\'m a web dev for hide so name your price!
+                    $answer='<ul><li>Quick contact me by phone: <b>0914 831 089</b><br> by mail: <b>tungnguyenls2008@gmail.com</b></li>
+                <br> <li>You can find all of my information in this site.</li>
+                <br> <li>I\'m a web dev for hide so name your price!</li></ul>
                 <hr> This chat is supported by OpenAI so feel free to ask me anything.
                 ';
                 }else{
-                    $answer='Liên lạc với tôi qua SĐT: 0914 831 089, qua mail: tungnguyenls2008@gmail.com
-                <br> Bạn có thể tìm thấy mọi thông tin về tôi trên trang này.
-                <br> Tôi là một thủy quân lục Code nên là tiền nào của nấy hen ;)
+                    $answer='<ul><li>Liên lạc với tôi qua: <br>SĐT: <b>0914 831 089</b><br>mail: <b>tungnguyenls2008@gmail.com</b></li>
+                <br> <li>Bạn có thể tìm thấy mọi thông tin về tôi trên trang này.</li>
+                <br> <li>Tôi là một thủy quân lục Code nên là tiền nào của nấy hen ;)</li></ul>
                 <hr> Chức năng trò chuyện này được hỗ trợ bởi OpenAI nên bạn cứ thoải mái hỏi tôi những gì bạn muốn!
                 ';
                 }

@@ -173,7 +173,7 @@
 <div class="copy-bottom white boxed">© {{ $general->brand_name }} <?php echo date("Y"); ?>.</div>
 <div class="lang-bottom white boxed">
     <div class="" style="margin-bottom: 500px;margin-left: 300px">
-        <button class="chat_button">
+        <button class="chat_button" data-toggle="tooltip" data-placement="left" title="{{ session('locale') == 'en' ? 'Chat with me' : 'Trò chuyện với tôi' }}">
             <img src="{{asset('images/chat_icon.png')}}" alt="send"
                  style="width: 48px;background-color: transparent">
         </button>
@@ -249,6 +249,8 @@
 <script src="{{ asset('js/scripts.js') }}"></script>
 <script>
     $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

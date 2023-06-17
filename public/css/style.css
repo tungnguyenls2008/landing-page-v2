@@ -7952,7 +7952,7 @@ a.brand:focus{
     background: whitesmoke;
     padding: 16px 15px;
     color: #666;
-    max-width: 75%;
+    max-width: 100%;
     float: left;
     margin-left: 10px;
     margin: 10px 0;
