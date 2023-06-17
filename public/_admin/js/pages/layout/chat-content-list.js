@@ -1,16 +1,16 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 var __webpack_exports__ = {};
-/*!*************************************************************!*\
-  !*** ./resources/metronic/js/pages/layout/work-category.js ***!
-  \*************************************************************/
+/*!***********************************************************!*\
+  !*** ./resources/metronic/js/pages/layout/client-list.js ***!
+  \***********************************************************/
  // Class definition
 
-var WorkCategoryPage = function () {
+var ClientListPage = function () {
   // Private functions
   // demo initializer
   var demo = function demo() {
-    var datatable = $('#kt_datatable_work_category').KTDatatable({
+    var datatable = $('#kt_datatable_clients').KTDatatable({
       data: {
         saveState: {
           cookie: false
@@ -22,10 +22,10 @@ var WorkCategoryPage = function () {
       columns: [{
         field: '#',
         title: '#',
-        width: 20
+        width: 'auto'
       }, {
-        field: 'Name (VI)',
-        title: 'Name (VI)',
+        field: 'Project Name (VI)',
+        title: 'Project Name (VI)',
         responsive: {
           visible: 'md',
           hidden: 'sm'
@@ -63,7 +63,7 @@ var WorkCategoryPage = function () {
         }
       }]
     });
-    $('#kt_datatable_work_category').on("click", ".delete", function (e) {
+    $('#kt_datatable_clients').on("click", ".delete", function (e) {
       e.preventDefault();
       var id = $(this).data('id');
       Swal.fire({
@@ -82,7 +82,7 @@ var WorkCategoryPage = function () {
         if (result.value) {
           $(".page-loader").addClass("bg-dark-o-50");
           $("#kt_body").addClass("page-loading");
-          var sendUri = HOST_URL + "/layout/work-category/" + id;
+          var sendUri = HOST_URL + "/layout/chat-list/" + id;
           $.ajax({
             url: sendUri,
             method: 'DELETE',
@@ -120,12 +120,12 @@ var WorkCategoryPage = function () {
         }
       });
     });
-    $('#kt_datatable_work_category').on("click", ".edit", function (e) {
+    $('#kt_datatable_clients').on("click", ".edit", function (e) {
       e.preventDefault();
       var id = $(this).data('id');
       $(".page-loader").addClass("bg-dark-o-50");
       $("#kt_body").addClass("page-loading");
-      var sendUri = HOST_URL + "/layout/work-category/" + id;
+      var sendUri = HOST_URL + "/layout/chat-list/" + id;
       $.ajax({
         url: sendUri,
         method: 'GET',
@@ -137,6 +137,7 @@ var WorkCategoryPage = function () {
             $("#editModal [name=name]").val(data.name);
             $("#editModal [name=name_ar]").val(data.name_ar);
             $("#editModal [name=order]").val((_data$order = data.order) !== null && _data$order !== void 0 ? _data$order : '');
+            $("#img_project").attr("src", PUBLIC_PATH + "/images/clients/" + data.image);
             $("#editModal [name=id]").val(data.id);
             $("#editModal").modal("show");
           } else {}
@@ -158,7 +159,7 @@ var WorkCategoryPage = function () {
 }();
 
 jQuery(document).ready(function () {
-  WorkCategoryPage.init();
+  ClientListPage.init();
 });
 /******/ })()
 ;

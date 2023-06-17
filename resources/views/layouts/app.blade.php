@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'TungND') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -38,7 +38,6 @@
     <div class="d-flex flex-column flex-root">
         @yield('content')
     </div>
-
     @yield('js_before')
     <script src="{{ asset('_admin/js/config.bundle.js') }}"></script>
     <!--begin::Global Theme Bundle(used by all pages)-->

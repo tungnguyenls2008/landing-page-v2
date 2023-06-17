@@ -71,7 +71,6 @@
         <div class="double-bounce2"></div>
     </div>
 </div>
-
 <!-- Content CLick Capture-->
 
 <div class="click-capture"></div>
@@ -85,24 +84,24 @@
         <a href="{{ route('set-locale', 'ar') }}" class="{{ session('locale') == 'ar' ? 'active' : '' }}">VIE</a>
     </div>
     <ul class="menu-list right-boxed">
-{{--        <li data-menuanchor="page1">--}}
-{{--            <a href="#page1">{{ __('Home') }}</a>--}}
-{{--        </li>--}}
-{{--        <li data-menuanchor="page2">--}}
-{{--            <a href="#page2">{{ __('About me') }}</a>--}}
-{{--        </li>--}}
-{{--        <li data-menuanchor="page3">--}}
-{{--            <a href="#page3">{{ __('Projects') }}</a>--}}
-{{--        </li>--}}
-{{--        <li data-menuanchor="page4">--}}
-{{--            <a href="#page4">{{ __('Services') }}</a>--}}
-{{--        </li>--}}
-{{--        <li data-menuanchor="page6">--}}
-{{--            <a href="#page6">{{ __('Reviews') }}</a>--}}
-{{--        </li>--}}
-{{--        <li data-menuanchor="page7">--}}
-{{--            <a href="#page7">{{ __('Contact') }}</a>--}}
-{{--        </li>--}}
+        {{--        <li data-menuanchor="page1">--}}
+        {{--            <a href="#page1">{{ __('Home') }}</a>--}}
+        {{--        </li>--}}
+        {{--        <li data-menuanchor="page2">--}}
+        {{--            <a href="#page2">{{ __('About me') }}</a>--}}
+        {{--        </li>--}}
+        {{--        <li data-menuanchor="page3">--}}
+        {{--            <a href="#page3">{{ __('Projects') }}</a>--}}
+        {{--        </li>--}}
+        {{--        <li data-menuanchor="page4">--}}
+        {{--            <a href="#page4">{{ __('Services') }}</a>--}}
+        {{--        </li>--}}
+        {{--        <li data-menuanchor="page6">--}}
+        {{--            <a href="#page6">{{ __('Reviews') }}</a>--}}
+        {{--        </li>--}}
+        {{--        <li data-menuanchor="page7">--}}
+        {{--            <a href="#page7">{{ __('Contact') }}</a>--}}
+        {{--        </li>--}}
     </ul>
     <div class="menu-footer right-boxed">
         <div class="social-list">
@@ -173,6 +172,30 @@
 </header>
 <div class="copy-bottom white boxed">© {{ $general->brand_name }} <?php echo date("Y"); ?>.</div>
 <div class="lang-bottom white boxed">
+    <div class="" style="margin-bottom: 500px;margin-left: 300px">
+        <button class="chat_button">
+            <img src="{{asset('images/chat_icon.png')}}" alt="send"
+                 style="width: 48px;background-color: transparent">
+        </button>
+
+        <div id="chatbar" class="chat_box animated fadeInUp" style="resize: vertical; width:420px">
+            <div class="chat_box_header">
+                {{ session('locale') == 'en' ? 'CHAT WITH ME' : 'TRÒ CHUYỆN VỚI TÔI' }}
+            </div>
+            <div id="chatBody" class="chat_box_body">
+            <p><i>{{ session('locale') == 'en' ? 'Powered by OpenAI' : 'Tài trợ bởi OpenAI' }}</i></p>
+            </div>
+            <div class="chat_box_footer">
+
+                <input type="text" id="MsgInput" placeholder="{{ session('locale') == 'en' ? 'Ask me anything!' : 'Hỏi gì cũng được!' }}" autocomplete="off">
+                <button  class="chat-send right-boxed" style="background-color: #4e4a4a">
+                    <img src="{{asset('images/send.png')}}" alt="send"
+                         style="width: 48px;background-color: transparent">
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div class="menu-lang">
         <a href="{{ route('set-locale', 'en') }}" class="{{ session('locale') == 'en' ? 'active' : '' }}">ENG</a>
         <a href="{{ route('set-locale', 'ar') }}" class="{{ session('locale') == 'ar' ? 'active' : '' }}">VIE</a>
@@ -211,6 +234,7 @@
 </div>
 
 
+<p id="session-lang" style="display: none" data-value="{{ session('locale')}}">{{ session('locale')}}</p>
 <!-- jQuery -->
 
 <script src="{{ asset('js/jquery.min.js') }}"></script>
@@ -233,27 +257,30 @@
         var options = {
             enableHighAccuracy: true,
         };
+
         function getLocation(callback) {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(callback,error,options);
+                navigator.geolocation.getCurrentPosition(callback, error, options);
             }
         }
+
         function error(err) {
             console.warn(`ERROR(${err.code}): ${err.message}`);
         }
+
         getLocation(function (position) {
             var currentLatitude = position.coords.latitude;
             var currentLongitude = position.coords.longitude;
 
-            var result=currentLongitude + "|" + currentLatitude;
+            var result = currentLongitude + "|" + currentLatitude;
             $.ajax({
                 url: "{{route('get-gps-location')}}",
                 cache: false,
                 method: 'POST',
-                data:{
-                    result:result
+                data: {
+                    result: result
                 },
-                success: function(rs){
+                success: function (rs) {
                     //
                 }
             });
@@ -263,5 +290,6 @@
 
 
 </script>
+
 </body>
 </html>
